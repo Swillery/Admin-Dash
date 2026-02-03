@@ -1,0 +1,65 @@
+* {
+    font-family: 'Roboto', sans-serif;
+    background-color: #dbdbdb;
+}
+
+/*create main grid for section layout*/
+.container {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 15% 85%;
+}
+
+.header {
+    padding: 1.25rem;
+    grid-column: 2 / 3;
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    grid-template-rows: 2fr 5fr;
+}
+
+/*100vh to fill entire side of screen regardless of window size*/
+.sidebar {
+    padding: 1.25rem;
+    grid-row: 1/3;
+    display: grid;
+    height: 100vh;
+    grid-template-rows: 1fr 4fr 4fr;
+}
+
+/*max-height to bring up the main grid a bit more*/
+.main {
+    display: grid;
+    gap: 1.25rem;
+    padding: 20px;
+    grid-template-rows: 8% 42% 8% 42%;
+    grid-template-columns: 70% 30%;
+    max-height: 80%;
+}
+
+.section-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#ann-header {
+    grid-area: 1/2;
+}
+
+#trending-header {
+    grid-area: 3/2;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+    grid-row: 2/5;
+}
+
+.trending {
+    grid-column: 2/3;
+}
+
