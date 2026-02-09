@@ -1,44 +1,208 @@
 * {
     font-family: 'Roboto', sans-serif;
-    background-color: #dbdbdb;
+}
+
+/*fill page since no need for scroll*/
+body {
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 /*create main grid for section layout*/
 .container {
     display: grid;
     grid-template-columns: 1fr 5fr;
-    grid-template-rows: 15% 85%;
+    grid-template-rows: .25fr 1fr;
+    height: 100vh;
+    overflow: hidden;
 }
 
+/*create header grid*/
 .header {
     padding: 1.25rem;
+    padding-top: 0;
+    padding-bottom: 0;
     grid-column: 2 / 3;
     display: grid;
     grid-template-columns: 5fr 3fr;
-    grid-template-rows: 2fr 5fr;
+    grid-template-rows: .1fr 1fr;
+    box-shadow: 1px 1px 5px rgb(145, 145, 145);
 }
 
-/*100vh to fill entire side of screen regardless of window size*/
+/*header coloring*/
+.header > *, .header, .header img, .header p {
+    background-color: rgb(132, 206, 255);
+    color: #333;
+}
+
+/*make buttons appear clickable*/
+.header img, .header p {
+    cursor: pointer;
+}
+
+.search {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    align-items: center;
+    padding: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+/*centering search button a bit*/
+.search img {
+    padding-left: 50px;
+}
+
+.searchbar {
+    border-radius: 25px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    outline: none;
+    width: calc(100% - 150px);
+}
+
+.corner-profile {
+    padding: 1rem;
+    padding-left: 16rem;
+    display: grid;
+    align-items: center;
+    grid-template-columns: .15fr .11fr 1fr;
+    justify-items: start;
+    font-weight: bold;
+    gap: .4rem;
+}
+
+#alerts {
+    padding-right: .8rem;
+}
+
+/*circle profile pictures*/
+.circlepfp {
+    border-radius: 50%;
+}
+
+.welcome {
+    display: grid;
+    padding-left: 50px;
+    align-items: center;
+    justify-items: left;
+    grid-template-columns: .8fr 10fr;
+    gap: .5rem;
+    height: fit-content;
+}
+
+.greeting p {
+    font-weight: bold;
+    margin: 0;
+}
+
+#name {
+    font-size: x-large;
+    margin-top: 0;
+}
+
+.actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
+    padding-top: 1.0rem;
+    height: fit-content;
+}
+
+.actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    border-radius: 9999px;
+    border: none;
+    background-color: #1da1f2;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*create sidebar grid for section layout*/
 .sidebar {
     padding: 1.25rem;
     grid-row: 1/3;
     display: grid;
-    height: 100vh;
-    grid-template-rows: 1fr 4fr 4fr;
+    height: 100vh; /*100vh to fill entire side of screen regardless of window size*/
+    grid-template-rows: 1fr 1fr 5fr;
 }
 
-/*max-height to bring up the main grid a bit more*/
+.sidetop img {
+    height: 4rem;
+    width: 100%;
+    padding-right: 80px;
+}
+
+.sidemid img, .sidebottom img {
+    height: 2rem;
+    width: 100%;
+    padding-right: 100px;
+}
+
+/*sidebar coloring*/
+.sidebar ,.sidebar > *, .sidebar p, .sidebar img {
+    background-color: rgb(0, 153, 255);
+    color: white;
+    justify-items: start;
+}
+
+.sidetop {
+    font-size: 2rem;
+    font-weight: bolder;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+}
+
+.sidemid {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    align-items: center;
+}
+
+.sidebottom {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 25% 1fr;
+    grid-template-rows: .05fr 0.05fr 0.05fr;
+    padding-top: 10%;
+}
+
+
+.sidemid, .sidebottom {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/*make buttons appear clickable*/
+.sidebar img, .sidebar p {
+    cursor: pointer;
+}
+
+/*create main project grid for section layout*/
 .main {
     display: grid;
     gap: 1.25rem;
     padding: 20px;
     grid-template-rows: 8% 42% 8% 42%;
     grid-template-columns: 70% 30%;
-    max-height: 80%;
+    max-height: 80%; /*max-height to bring up the main grid a bit more*/
 }
 
 .section-header {
-    font-size: 18px;
+    font-size: 1.25rem;
     font-weight: bold;
     margin-bottom: 10px;
     color: #333;
