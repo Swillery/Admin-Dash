@@ -2,13 +2,12 @@
     font-family: 'Roboto', sans-serif;
 }
 
-/*fill page since no need for scroll*/
 body {
     min-height: 100vh;
     max-height: 100vh;
-    overflow: hidden;
     margin: 0;
     padding: 0;
+    background-color: #f1f1f1;
 }
 
 /*create main grid for section layout*/
@@ -17,7 +16,7 @@ body {
     grid-template-columns: 1fr 5fr;
     grid-template-rows: .25fr 1fr;
     height: 100vh;
-    overflow: hidden;
+    margin-bottom: 375px;
 }
 
 /*create header grid*/
@@ -38,8 +37,8 @@ body {
     color: #333;
 }
 
-/*make buttons appear clickable*/
-.header img, .header p {
+/*make certain items appear clickable*/
+.header img, .header p, .icon-set img, .sidebar img, .sidebar p, .user img, .user p, .actions button {
     cursor: pointer;
 }
 
@@ -127,15 +126,18 @@ body {
     background-color: #1da1f2;
     color: #ffffff;
     font-weight: bold;
-    cursor: pointer;
+}
+
+.actions button:hover {
+    background-color: #1789cc; /*slightly darker shade on hover*/
 }
 
 /*create sidebar grid for section layout*/
 .sidebar {
     padding: 1.25rem;
+    height: 100%;
     grid-row: 1/3;
     display: grid;
-    height: 100vh; /*100vh to fill entire side of screen regardless of window size*/
     grid-template-rows: 1fr 1fr 5fr;
 }
 
@@ -186,11 +188,6 @@ body {
     font-weight: 600;
 }
 
-/*make buttons appear clickable*/
-.sidebar img, .sidebar p {
-    cursor: pointer;
-}
-
 /*create main project grid for section layout*/
 .main {
     display: grid;
@@ -199,6 +196,8 @@ body {
     grid-template-rows: 8% 42% 8% 42%;
     grid-template-columns: 70% 30%;
     max-height: 80%; /*max-height to bring up the main grid a bit more*/
+    color: #333;
+    background-color: #f1f1f1;
 }
 
 .section-header {
@@ -206,6 +205,10 @@ body {
     font-weight: bold;
     margin-bottom: 10px;
     color: #333;
+}
+
+#project-header, #project-header p, #ann-header, #ann-header p, #trending-header {
+    margin-bottom: 0;
 }
 
 #ann-header {
@@ -223,7 +226,99 @@ body {
     grid-row: 2/5;
 }
 
-.trending {
-    grid-column: 2/3;
+.post {
+    display: grid;
+    padding: 2rem;
+    box-shadow: 5px 5px 5px rgb(145, 145, 145);
+    background-color: rgb(132, 206, 255);
+    border-radius: 15px;
+    border-left: 8px solid orange;
+    font-weight: bold;
+    font-size: larger;
+    gap: 2rem;
 }
 
+.small {
+    font-weight: 500;
+    font-size: small;
+    color: #535353;
+}
+
+.icon-set {
+    display: grid;
+    justify-items: end;
+    grid-template-columns: .1fr .1fr .1fr;
+    margin-left: 22rem;
+    gap: 1rem;
+
+}
+
+.announcements, .trending {
+    display: grid;
+    background-color: #ffffff;
+    height: fit-content;
+    max-width: 25rem;
+    border-radius: 25px;
+    padding-top: 12px;
+}
+
+.topic {
+    font-size: larger;
+    font-weight: bold;
+    padding: 15px;
+    padding-top: 0;
+    position: relative;
+}
+
+/*create separator between posts*/
+.topic::after {
+    content: ''; /*empty content to create the line*/
+    position: absolute;
+    left: 25%;
+    width: 50%;
+    height: 2px;
+    background-color: #b6b6b675;
+    border-radius: 25px;
+    bottom: 15px; /*position it at the bottom of the post*/
+}
+
+/*remove separator from the last topic*/
+.announcements .topic:last-child::after {
+    content: none;
+}
+
+.tpc-text, .bio{
+    font-size: 14px;
+    font-weight: 500;
+    color: #7e7e7e;
+}
+
+.trending {
+    grid-column: 2/3;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    padding-bottom: 32px;
+}
+
+
+.user {
+    display: grid;
+    grid-template-columns: .1fr 1fr;
+    font-size: larger;
+    font-weight: bold;
+    padding: 15px;
+    height: 4.6rem;
+    align-items: center;
+}
+
+.user img {
+    margin-right: 1rem;
+    height: 65px;
+    width: 65px;
+    border: 3px solid #1da1f2
+}
+
+.bio {
+    grid-column: 2/3;
+    margin-top: -18px;
+    padding-left: 1px;
+}
